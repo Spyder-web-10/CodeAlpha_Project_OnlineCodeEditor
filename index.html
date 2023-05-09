@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/0c8cd570b4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <label for="#"><i class="fa-brands fa-html5 fa-fade fa-xl"></i>  HTML </label>
+            <textarea name="" id="html-code" cols="30" rows="10" onkeyup="run()"></textarea>
+
+            <label for="#"><i class="fa-brands fa-css3-alt fa-fade fa-xl"></i>  CSS </label>
+            <textarea name="" id="css-code" cols="30" rows="10" onkeyup="run()"></textarea>
+
+            <label for="#"><i class="fa-brands fa-square-js fa-fade fa-xl"></i>  JAVA SCRIPT</label>
+            <textarea name="" id="js-code" cols="30" rows="10"></textarea>
+        </div>
+        <div class="right">
+            <label for=""><i class="fa-solid fa-play fa-fade fa-lg"></i> OUTPUT</label>
+            <iframe src="" id="output" frameborder="0" onkeyup="run()"></iframe>
+        </div>
+    </div>
+
+
+    <script>
+        function run() {
+            let htmlcode = document.getElementById("html-code").value;
+            let csscode = document.getElementById("css-code").value;
+            let jscode = document.getElementById("js-code").value;
+            let output = document.getElementById("output");
+
+            output.contentDocument.body.innerHTML = htmlcode+ "<style>"+csscode+"</style>";
+            output.contentWindow.eval(jscode);
+        }
+    </script>
+</body>
+</html>
